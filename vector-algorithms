@@ -42,7 +42,21 @@ void display(const std::vector <T>& vec) {
 	std::cout << "]" << std::endl;
 }
 
+void test1() {
+	std::vector<int> vec{ 1,2,3,4,5,6,7,8,9,10 };
+	display(vec);
+	vec = { 2,3,4,5,6 };
+	display(vec);
+	std::vector<int> vec1(10, 100); //ten 100s in the vector using () instead of {}
+	display(vec1);
+	std::vector <std::string> vec2{ "Jenny", "Elizabeth", "Gabriel"};
+	display(vec2);
+	std::for_each(vec1.begin(), vec1.end(), [](int &x) { x = 1000; }); //x by reference in the lambda allows the integer to be changed
+	display(vec1);
+}
+
 int main() 
 {
+test1();
 return 0;
 }
