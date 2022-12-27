@@ -176,6 +176,37 @@ void test5() {
 	std::cout << "The back of the vector contains the account: " << accounts.back() << std::endl;
 }
 
+void test6() {
+	std::cout << "\nTest5======================" << std::endl;
+	std::vector<int> vec{ 1,2,3,4,5 };
+	display(vec);
+	vec.clear(); //remove all elements
+	display(vec);
+	vec = { 1,2,3,4,5,6,7,8,9,10 };
+	display(vec);
+	std::cout << "Vector size: " << vec.size() << std::endl;
+	std::cout << "The front of the vector contains: " << vec.front() << std::endl;
+
+	vec.erase(vec.begin(), vec.begin() + 2);
+	display(vec);
+	std::cout << "Vector size: " << vec.size() << std::endl;
+	vec.erase(vec.begin(), vec.begin() + 3); 
+	display(vec);
+	std::cout << "Vector size: " << vec.size() << std::endl;
+	std::cout << "The front of the vector contains: " << vec.front() << std::endl;
+	std::vector <int> vec1 = { 1,2,3,4,5,6,7,8,9,10 };
+	//erase all even numbers using while loop and iterator
+	//std::vector<int>::iterator it = vec1.begin();
+	auto it = vec1.begin();
+	while (it != vec1.end()) {
+		if (*it % 2 == 0)
+			vec1.erase(it);
+		else
+			it++;
+	}
+	display(vec1);
+}
+
 int main() 
 {
 test1();
@@ -183,5 +214,6 @@ test2();
 test3();
 test4();
 test5();
+test6();
 return 0;
 }
