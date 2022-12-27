@@ -87,9 +87,43 @@ void test2() {
 	std::cout << "\nVec capacity: " << vec.capacity() << std::endl << std::endl;
 }
 
+void test3() {
+	std::cout << "\nTest3===================" << std::endl;
+	std::vector<int> vec{ 1,2,3,4,5 };
+	display(vec);
+	vec[0] = 100;
+	display(vec);
+	vec[1] = 200;
+	display(vec);
+	vec[2] = 300;
+	display(vec);
+	vec[3] = 400;
+	display(vec);
+	vec[4] = 500;
+	display(vec);
+	vec.shrink_to_fit();
+	std::cout << "\nVec size: " << vec.size() << std::endl;
+	std::cout << "\nVec max size: " << vec.max_size() << std::endl;
+	std::cout << "\nVec capacity: " << vec.capacity() << std::endl << std::endl;
+	vec.at(0) = 1000;
+	display(vec);
+	vec.at(1) = 2000;
+	display(vec);
+	vec.at(2) = 3000;
+	display(vec);
+	vec.at(3) = 4000;
+	display(vec);
+	vec.at(4) = 5000;
+	display(vec);
+	std::cout << "\nVec size: " << vec.size() << std::endl;
+	std::cout << "\nVec max size: " << vec.max_size() << std::endl;
+	std::cout << "\nVec capacity: " << vec.capacity() << std::endl << std::endl;
+}
+
 int main() 
 {
 test1();
 test2();
+test3();
 return 0;
 }
