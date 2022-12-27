@@ -56,8 +56,40 @@ void test1() {
 	display(vec1);
 }
 
+void test2() {
+	std::cout << "\nTest2====================" << std::endl;
+	std::vector<int> vec{ 1,2,3,4,5 };
+	display(vec);
+	std::cout << "\nVec size: " << vec.size() << std::endl;
+	std::cout << "\nVec max size: " << vec.max_size() << std::endl;
+	std::cout << "\nVec capacity: " << vec.capacity() << std::endl << std::endl;
+	vec.push_back(6);
+	display(vec);
+	std::cout << "\nVec size: " << vec.size() << std::endl;
+	std::cout << "\nVec max size: " << vec.max_size() << std::endl;
+	std::cout << "\nVec capacity: " << vec.capacity() << std::endl << std::endl;
+	vec.shrink_to_fit();
+	display(vec);
+	std::cout << "\nVec size: " << vec.size() << std::endl;
+	std::cout << "\nVec max size: " << vec.max_size() << std::endl;
+	std::cout << "\nVec capacity: " << vec.capacity() << std::endl << std::endl;
+	vec.push_back(7);
+	vec.push_back(8);
+	vec.push_back(9);
+	display(vec);
+	std::cout << "\nVec size: " << vec.size() << std::endl;
+	std::cout << "\nVec max size: " << vec.max_size() << std::endl;
+	std::cout << "\nVec capacity: " << vec.capacity() << std::endl << std::endl;
+	vec.reserve(100); //reserve the capacity of the vector to 100
+	display(vec);
+	std::cout << "\nVec size: " << vec.size() << std::endl;
+	std::cout << "\nVec max size: " << vec.max_size() << std::endl;
+	std::cout << "\nVec capacity: " << vec.capacity() << std::endl << std::endl;
+}
+
 int main() 
 {
 test1();
+test2();
 return 0;
 }
