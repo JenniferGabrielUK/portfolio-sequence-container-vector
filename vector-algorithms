@@ -1,0 +1,48 @@
+// portfolio-sequence-container-vector.cpp : This file contains the 'main' function. Program execution begins and ends there.
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+
+class Person {
+	//default constructor
+	//friend overloaded insertion operator expecting Person class
+	//overloaded less than operator
+	//overloaded == operator
+	//variables std::string name, int age
+private:
+	friend std::ostream& operator<< (std::ostream& os, const Person& p);
+	std::string name{};
+	int age{};
+public:
+	Person() = default; //default constructor
+	Person(std::string name, int age) : name{ name }, age{ age } {std::cout << "Two arguement constructor being called." << std::endl; }
+	bool operator< (const Person& rhs) { return this->age < rhs.age; }
+	bool operator== (const Person& rhs) { return this->name == rhs.name && this->age == rhs.age; }
+};
+
+std::ostream& operator<< (std::ostream& os, const Person& p) {
+	os << "\n[ " << p.name << " : " << p.age << "]" << std::endl;
+	return os;
+}
+
+
+void display2(const std::vector<int>& vec) {
+	std::cout << "[ ";
+	std::for_each(vec.begin(), vec.end(),
+		[](int x) {std::cout << x << " "; }); //same effect as a rn%aged based for loop
+	std::cout << "]" << std::endl;
+}
+
+template <typename T>
+void display(const std::vector <T>& vec) {
+	std::cout << "[";
+	for (auto& elem : vec)
+		std::cout << elem << " ";
+	std::cout << "]" << std::endl;
+}
+
+int main() 
+{
+return 0;
+}
