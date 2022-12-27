@@ -16,7 +16,7 @@ private:
 	int age{};
 public:
 	Person() = default; //default constructor
-	Person(std::string name, int age) : name{ name }, age{ age } {std::cout << "Two arguement constructor being called." << std::endl; }
+	Person(std::string name, int age) : name{ name }, age{ age = 0 } {std::cout << "Two arguement constructor being called." << std::endl; }
 	bool operator< (const Person& rhs) { return this->age < rhs.age; }
 	bool operator== (const Person& rhs) { return this->name == rhs.name && this->age == rhs.age; }
 };
@@ -120,10 +120,37 @@ void test3() {
 	std::cout << "\nVec capacity: " << vec.capacity() << std::endl << std::endl;
 }
 
+void test4() {
+	std::cout << "\nTest5=====================" << std::endl;
+	std::vector <Person> accounts;
+	Person p1{ "Jennifer", 18 };
+	display(accounts);
+	accounts.push_back(p1);
+	display(accounts);
+	Person p2{ "Elizabeth Gabriel", 27 };
+	accounts.push_back(p2);
+	display(accounts);
+	accounts.push_back(Person{ "Sam Wise", 38 });
+	display(accounts);
+	accounts.push_back(Person{ "Frodo", 32 });
+	display(accounts);
+	accounts.push_back(Person{ "Gimli" });	//uses default age.
+	display(accounts);
+	accounts.emplace_back("Gandalf the Grey", 432); //uses emplace_back constructing the relevant class for te vector involved.
+	display(accounts);
+	accounts.emplace_back("Gandalf the White"); //uses default age.
+	display(accounts);
+	std::cout << "Vec size: " << accounts.size() << std::endl;
+	std::cout << "Capacity: " << accounts.capacity() << std::endl;	
+	accounts.shrink_to_fit();
+	std::cout << "Vec size after shrink_to_fit: " << accounts.size() << std::endl;
+}
+
 int main() 
 {
 test1();
 test2();
 test3();
+test4();
 return 0;
 }
