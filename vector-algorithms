@@ -146,11 +146,34 @@ void test4() {
 	std::cout << "Vec size after shrink_to_fit: " << accounts.size() << std::endl;
 }
 
+void test5() {
+	std::cout << "\nTest5======================" << std::endl;
+	std::vector<Person> accounts{
+		{"Jenny", 21},
+		{"Elizabeth", 33},
+		{"Gabriel"}
+	};
+	display(accounts);
+	accounts.push_back(Person{"Jennifer"});
+	display(accounts);
+	std::cout << "The front of the vector contains the account: " << accounts.front() << std::endl;
+	std::cout << "The back of the vector contains the account: " << accounts.back() << std::endl;
+	accounts.pop_back();
+	display(accounts);
+	std::cout << "The front of the vector contains the account: " << accounts.front() << std::endl;
+	std::cout << "The back of the vector contains the account: " << accounts.back() << std::endl;
+	accounts.pop_back();
+	display(accounts);
+	std::cout << "The front of the vector contains the account: " << accounts.front() << std::endl;
+	std::cout << "The back of the vector contains the account: " << accounts.back() << std::endl;
+}
+
 int main() 
 {
 test1();
 test2();
 test3();
 test4();
+test5();
 return 0;
 }
