@@ -246,6 +246,41 @@ void test8() {
 	display(vec2);
 }
 
+void test9() {
+	std::cout << "\nTest9=======================" << std::endl;
+	//std::back_inserter constructs a back-inserted iterator that inserts
+	//new elements, at the end of the continer it's applied to.
+	std::vector <int> vec1 { 1,2,3,4,5 };
+	std::vector <int> vec2{ 10,20 };
+	display(vec1);
+	display(vec2);
+	std::cout << std::endl;
+	//copy if the element is even
+	vec1 = { 1,2,3,4,5,6,7,8,9,10 };
+	vec2 = { 10,20 };
+	display(vec1);
+	display(vec2);
+	std::cout << std::endl;
+	std::copy_if(vec1.begin(), vec1.end(), std::back_inserter(vec2),
+		[](int x) {return x % 2 == 0; }); //copied even numbers into vec2 inserting them at the back
+	display(vec1);
+	display(vec2);
+	vec1 = { 1,2,3,4,5,6,7,8,9,10 };
+	vec2 = { 10,20 };
+	std::copy_if(vec1.begin(), vec1.end(), std::back_inserter(vec2),
+		[](int x) {return x % 2 != 0; });
+	display(vec1);
+	display(vec2);
+	std::vector <std::string> vec3{ "Jenny", "Jen", "Elizabeth", "Gabriel" };
+	std::vector <std::string> vec4{};
+	display(vec3);
+	display(vec4);
+	std::copy_if(vec3.begin(), vec3.end(), std::back_inserter(vec4),
+		[](std::string i) {return i.size() <= 3; });
+	display(vec3);
+	display(vec4);
+}
+
 int main() 
 {
 test1();
@@ -256,5 +291,6 @@ test5();
 test6();
 test7();
 tets8();
+test9();
 return 0;
 }
