@@ -208,6 +208,30 @@ void test6() {
 	display(vec1);
 }
 
+void test7() {
+	std::cout << "\nTest7=======================" << std::endl;
+	std::vector<int> vec1{ 1,2,3,4,5 };
+	std::vector<int> vec2{ 1,2,3,4,5,6,7,8,9,10 };
+	std::vector<int> vec3{ 10,20,30,40,50,60,70,80,90,100 };
+	display(vec1);
+	display(vec2);
+	display(vec3);
+	std::cout << "Swap function being called." << std::endl;
+	vec2.swap(vec1);
+	display(vec1);
+	display(vec2);
+	std::cout << "Swap function being called." << std::endl;
+	vec3.swap(vec2);
+	display(vec1);
+	display(vec2);
+	display(vec3);
+	std::cout << "Swap function being called." << std::endl;
+	vec1.swap(vec2);
+	display(vec1);
+	display(vec2);
+	display(vec3);
+}
+
 int main() 
 {
 test1();
@@ -216,5 +240,6 @@ test3();
 test4();
 test5();
 test6();
+test7();
 return 0;
 }
