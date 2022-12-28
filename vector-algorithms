@@ -281,6 +281,27 @@ void test9() {
 	display(vec4);
 }
 
+void test10() {
+	std::cout << "\nTest10=======================" << std::endl;
+	//std::transform over two ranges
+	std::vector<int> vec1{ 1,2,3,4,5 };
+	std::vector<int> vec2{ 10,20,30,40,50 };
+	std::vector<int> vec3;
+	std::vector<int> vec4;
+	display(vec1);
+	display(vec2);
+	std::cout << "Transform functions being called on vectors 1 & 2." << std::endl;
+	//1*10,2*20,3*30,4*40,5*50 storing the results in vec3
+	std::transform(vec1.begin(), vec1.end(), vec2.begin(),
+		std::back_inserter(vec3),
+		[](int x, int y) { return x * y; });
+	display(vec3);
+	std::transform(vec1.begin(), vec1.end(), vec2.begin(),
+		std::back_inserter(vec4),
+		[](int x, int y) {return (x + y) * (x + y); });
+	display(vec4);
+}
+
 int main() 
 {
 test1();
@@ -292,5 +313,6 @@ test6();
 test7();
 tets8();
 test9();
+test10();
 return 0;
 }
