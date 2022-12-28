@@ -232,6 +232,20 @@ void test7() {
 	display(vec3);
 }
 
+void test8() {
+	std::cout << "\nTest8=======================" << std::endl;
+	std::vector <int> vec1{ 1,21,3,40,12 };
+	std::vector <std::string> vec2{ "Jenny-Jennifer", "Elizabeth", "Gabriel", "Gandalf", "Frodo" };
+	display(vec1);
+	std::cout << "Sort being called." << std::endl;
+	std::sort(vec1.begin(), vec1.end());
+	display(vec1);
+	display(vec2);
+	std::cout << "Sort being called." << std::endl;
+	std::sort(vec2.begin(), vec2.end());
+	display(vec2);
+}
+
 int main() 
 {
 test1();
@@ -241,5 +255,6 @@ test4();
 test5();
 test6();
 test7();
+tets8();
 return 0;
 }
